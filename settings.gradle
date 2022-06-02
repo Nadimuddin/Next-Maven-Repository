@@ -1,0 +1,5 @@
+rootProject.name = "Next Maven Repository"
+include ':app'
+//include ':product'
+//include ':service'
+//include ':payment'

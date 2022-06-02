@@ -1,0 +1,38 @@
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+//apply plugin: 'kotlin-android'
+
+group = 'io.swagger'
+version = '1.0'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+if(hasProperty('target') && target == 'android') {
+    apply plugin: 'com.android.library'
+
+    android {
+        compileSdkVersion 30
+        defaultConfig {
+            minSdkVersion 21
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+} else {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
